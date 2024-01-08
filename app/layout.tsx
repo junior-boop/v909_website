@@ -1,11 +1,15 @@
-import { Navbar } from '@/layouts'
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter as Sans, Italiana as Serif, Anton as Mono, Inter } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 
-const sans = Sans({ subsets: ['latin'] })
-const mono = Mono({ subsets : ['latin'], variable : '--font-anton', display : 'swap', weight : ['400']})
-const serif = Serif({ weight : ['400'], variable : '--font-italiana', subsets : ['latin'], display : 'swap'})
+
+export const poppins = Poppins({
+  weight: ['200', '400', '700', '900'],
+  display: 'swap',
+  variable: '--font-poppins',
+  fallback: ['Helvetica', 'sans-serif'],
+  subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -18,10 +22,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${sans.className} ${serif.variable} ${mono.variable}`}>
-      <body >
-        <Navbar />
-        {children}</body>
+    <html lang="en" className={`${poppins.variable}`}>
+      <body>
+        {children}
+      </body>
     </html>
   )
 }
